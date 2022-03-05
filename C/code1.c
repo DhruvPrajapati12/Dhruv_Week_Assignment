@@ -29,7 +29,7 @@ struct library
 int main()
 {
     int in=0, acc_number, count=0;
-    char title[50];
+    char title[50];         //declaration of variables that are entered by user
     char author[50];
     char flag;
     float price;
@@ -63,7 +63,8 @@ int main()
 
         switch (in)
         {
-        case 1:
+        case 1:     //Add book information
+
             printf("\nEnter the accession number: ");
             scanf("%d", &acc_number);
             
@@ -91,13 +92,14 @@ int main()
             printf("\nInformation added successfully\n");
             break;
 
-        case 2:
+        case 2:     //Display book information
+
             if(count==0)
             {
                 printf("\nThere is no data in library\n");
                 break;
             }
-            printf("\nAcc number\tTitle\t\tAuthor name\tPrice\tFlag\n");
+            printf("\nAcc number\tTitle\t\tAuthor name\tPrice\t\tFlag\n");
             // printf("%d      %s      %s      %0.2f       %c\n", l1.acc_number, l1.title, l1.author, l1.price, l1.flag);
             // printf("%d      %s      %s      %0.2f       %c\n", l2.acc_number, l2.title, l2.author, l2.price, l2.flag);
             for (int i = 0; i < count; i++)
@@ -110,7 +112,8 @@ int main()
             }
             break;
 
-        case 3:
+        case 3:     //List all books of given author
+
             if(count==0)
             {
                 printf("\nThere is no data in library\n");
@@ -123,13 +126,14 @@ int main()
             {
                 if(strcmp(l[i].author, author) == 0)
                 {
-                   printf("\nAcc number\tTitle\t\tAuthor name\tPrice\tFlag\n");
+                   printf("\nAcc number\tTitle\t\tAuthor name\tPrice\t\tFlag\n");
                    printf("%d\t\t%s\t\t%s\t\t%0.2f\t\t%c\n", l[i].acc_number, l[i].title, l[i].author, l[i].price, l[i].flag); 
                 }
             }
             break;
 
-        case 4:
+        case 4:     //List the title of specified book
+
             if(count==0)
             {
                 printf("\nThere is no data in library\n");
@@ -143,16 +147,20 @@ int main()
             }
             break;
 
-        case 5:
+        case 5:     //List the count of books in the library
+
             printf("\nTotal no of books in this library is %d\n", count);
             break;
 
-        case 6:
+        case 6:     //List the books in the order of accession number
+
             if(count==0)
             {
                 printf("\nThere is no data in library\n");
                 break;
             }
+
+            //sorting of an structure of array
             for(int i=0; i < count ; i++)
             {
                 for(int j = i+1; j < count ; j++)
@@ -166,7 +174,7 @@ int main()
                 }
             }
             printf("\nBooks in ascending order of index number is: \n");
-            printf("\nAcc number\tTitle\t\tAuthor name\tPrice\tFlag\n");
+            printf("\nAcc number\tTitle\t\tAuthor name\tPrice\t\tFlag\n");
             for (int i = 0; i < count; i++)
             {
                 printf("%d\t\t%s\t\t%s\t\t%0.2f\t\t%c\n", l[i].acc_number, l[i].title, l[i].author, l[i].price, l[i].flag);
